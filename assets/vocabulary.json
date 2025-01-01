@@ -3,7 +3,7 @@
       "word": "사랑",
       "pronunciation": "sa-rang",
       "definition_en": "Love",
-      "definition_kr": "다른 사람에 대해 특별한 감정을 느끼고, 아끼고 존중하는 감정",
+      "definition_kr": "어떤 사람이나 존재를 몹시 아끼고 귀중히 여기는 마음. 또는 그런 일.",
       "lexical": "(n.)",
       "example_en": "I love you.",
       "example_kr": "사랑해요."
@@ -13,7 +13,7 @@
       "pronunciation": "an-nyeong-ha-se-yo",
       "definition_en": "Hello (formal)",
       "definition_kr": "상대방에게 하는 공손한 인사말",
-      "lexical": "(expression)",
+      "lexical": " ",
       "example_en": "Hello, how are you?",
       "example_kr": "안녕하세요, 잘 지내셨어요?"
     },
@@ -22,7 +22,7 @@
       "pronunciation": "gam-sa-ham-ni-da",
       "definition_en": "Thank you (formal)",
       "definition_kr": "고마움을 표현하는 공손한 말",
-      "lexical": "(expression)",
+      "lexical": " ",
       "example_en": "Thank you for your help.",
       "example_kr": "도와주셔서 감사합니다."
     },
@@ -30,7 +30,7 @@
       "word": "친구",
       "pronunciation": "chin-gu",
       "definition_en": "Friend",
-      "definition_kr": "가깝게 지내는 동료",
+      "definition_kr": "가깝게 오래 사귄 사람.",
       "lexical": "(n.)",
       "example_en": "She is my best friend.",
       "example_kr": "그녀는 제 가장 친한 친구예요."
@@ -51,7 +51,7 @@
       "definition_kr": "생명 유지에 필수적인 무색 무취의 액체",
       "lexical": "(n.)",
       "example_en": "Can I have some water?",
-      "example_kr": "물 좀 주세요?"
+      "example_kr": "물 좀 주시겠어요?"
     },
     {
       "word": "학교",
@@ -85,7 +85,7 @@
       "pronunciation": "jo-a-yo",
       "definition_en": "I like it",
       "definition_kr": "마음에 들거나 긍정적으로 생각함을 나타내는 표현",
-      "lexical": "(expression)",
+      "lexical": " ",
       "example_en": "I like this book.",
       "example_kr": "이 책이 좋아요."
     },
@@ -103,7 +103,7 @@
       "pronunciation": "bae-go-pa-yo",
       "definition_en": "I'm hungry",
       "definition_kr": "음식을 먹고 싶은 상태",
-      "lexical": "(expression)",
+      "lexical": " ",
       "example_en": "I'm really hungry.",
       "example_kr": "정말 배고파요."
     },
@@ -112,7 +112,7 @@
       "pronunciation": "pi-gon-hae-yo",
       "definition_en": "I'm tired",
       "definition_kr": "몸이나 마음이 지친 상태",
-      "lexical": "(expression)",
+      "lexical": " ",
       "example_en": "I'm very tired today.",
       "example_kr": "오늘 너무 피곤해요."
     },
@@ -148,7 +148,7 @@
       "pronunciation": "joe-song-ham-ni-da",
       "definition_en": "I'm sorry (formal)",
       "definition_kr": "잘못이나 실수에 대해 사과하는 공손한 표현",
-      "lexical": "(expression)",
+      "lexical": " ",
       "example_en": "I'm sorry for being late.",
       "example_kr": "늦어서 죄송합니다."
     },
@@ -229,7 +229,7 @@
       "pronunciation": "a-pa-yo",
       "definition_en": "It hurts",
       "definition_kr": "신체적으로 고통을 느끼는 상태",
-      "lexical": "(expression)",
+      "lexical": " ",
       "example_en": "My head hurts.",
       "example_kr": "머리가 아파요."
     },
