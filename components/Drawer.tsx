@@ -16,9 +16,18 @@ import locksvg from "../util/lock-icon";
 type DrawerProps = {
   toggleDrawer: () => void;
   isOpen: boolean;
+  onSelectTopic: (topic: string | null) => void; // Prop for topic selection
+  onSelectLexical: (lexical: string | null) => void; // Prop for lexical selection
+  scrollToTop: () => void; // Prop for scrolling to top
 };
 
-const Drawer: React.FC<DrawerProps> = ({ isOpen, toggleDrawer }) => {
+const Drawer: React.FC<DrawerProps> = ({
+  isOpen,
+  toggleDrawer,
+  onSelectTopic,
+  onSelectLexical,
+  scrollToTop,
+}) => {
   const [slideAnim] = useState(new Animated.Value(-250)); // Initial position off-screen (left)
   const [opacityAnim] = useState(new Animated.Value(0)); // Initial opacity (hidden)
 
@@ -88,16 +97,70 @@ const Drawer: React.FC<DrawerProps> = ({ isOpen, toggleDrawer }) => {
         }}
       >
         <ScrollView style={styles.list}>
+          <Text style={styles.title}>Explore</Text>
+          <DrawerItem
+            primaryText="A"
+            secondaryText="ll"
+            locked={false}
+            onPress={() => {
+              onSelectTopic(null);
+              onSelectLexical(null);
+              scrollToTop(); // Scroll to top after selection
+            }}
+          />
+          <View style={{ paddingVertical: 24 }}></View>
           <Text style={styles.title}>Parts of speech</Text>
-          <DrawerItem primaryText="N" secondaryText="oun" locked={false} />
-          <DrawerItem primaryText="V" secondaryText="erb" locked={false} />
-          <DrawerItem primaryText="Adj" secondaryText="ective" locked={false} />
+          <DrawerItem
+            primaryText="N"
+            secondaryText="oun"
+            locked={false}
+            onPress={() => {
+              onSelectLexical("(n.)");
+              scrollToTop();
+            }}
+          />
+          <DrawerItem
+            primaryText="V"
+            secondaryText="erb"
+            locked={false}
+            onPress={() => {
+              onSelectLexical("(v.)");
+              scrollToTop();
+            }}
+          />
+          <DrawerItem
+            primaryText="Adj"
+            secondaryText="ective"
+            locked={false}
+            onPress={() => {
+              onSelectLexical("(adj.)");
+              scrollToTop();
+            }}
+          />
           <View style={{ paddingVertical: 24 }}></View>
           <Text style={styles.title}>By topic</Text>
           <DrawerItem primaryText="B" secondaryText="usiness" />
           <DrawerItem primaryText="D" secondaryText="ad jokes" />
-          <DrawerItem primaryText="E" secondaryText="motion" />
-          <DrawerItem primaryText="F" secondaryText="ood" />
+          <DrawerItem
+            primaryText="E"
+            secondaryText="motion"
+            locked={false}
+            onPress={() => {
+              onSelectTopic("emotion");
+              scrollToTop();
+            }}
+          />
+          <DrawerItem
+            primaryText="F"
+            secondaryText="ood"
+            locked={false}
+            onPress={() => {
+              onSelectTopic("food");
+              scrollToTop();
+            }}
+          />
+          <DrawerItem primaryText="I" secondaryText="diom" />
+          <DrawerItem primaryText="N" secondaryText="ative words" />
           <DrawerItem primaryText="T" secondaryText="ravel" />
           <DrawerItem primaryText="S" secondaryText="lang" />
         </ScrollView>
@@ -113,8 +176,8 @@ const styles = StyleSheet.create({
     alignContent: "flex-start",
     backgroundColor: Theme.colors.BG_WHITE,
     width: 250,
-    marginTop: 100,
-    paddingTop: 20,
+    marginTop: 110,
+    paddingTop: 40,
     paddingHorizontal: 36,
   },
   textArea: {
@@ -124,7 +187,7 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: "700",
     fontSize: 18,
-    marginVertical: 8,
+    marginVertical: 4,
   },
 });
 

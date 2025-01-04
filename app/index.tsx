@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   View,
   Text,
@@ -27,7 +27,8 @@ type WordCardProps = {
   example: string;
   language: string;
   lexical: string;
-  toggleLanguage: () => void;
+  topic: string | null;
+  toggleLanguage: (lang: string) => void;
 };
 
 const WordCard: React.FC<WordCardProps> = ({
@@ -37,6 +38,7 @@ const WordCard: React.FC<WordCardProps> = ({
   example,
   language,
   lexical,
+  topic,
   toggleLanguage,
 }) => {
   // Use TTS to speak the word
@@ -120,7 +122,32 @@ const WordCard: React.FC<WordCardProps> = ({
 export default function App() {
   const [language, setLanguage] = useState("en"); // Toggle between 'en' and 'kr'
   const [isDrawerOpen, setIsDrawerOpen] = useState(false); // State to track drawer visibility
+  const [selectedTopic, setSelectedTopic] = useState<string | null>(null); // Topic filter state
+  const [selectedLexical, setSelectedLexical] = useState<string | null>(null); // Lexical filter state
   const flatListRef = useRef<FlatList<any>>(null); // Create a ref for the FlatList
+
+  // Filter Data by Topic and Lexical
+  const filteredData = vocabularyData.filter((item: any) => {
+    const matchesTopic = selectedTopic ? item.topic === selectedTopic : true;
+    const matchesLexical = selectedLexical
+      ? item.lexical === selectedLexical
+      : true;
+    return matchesTopic && matchesLexical;
+  });
+
+  // Select lexical and close drawer after selection
+  const handleLexicalSelection = (lexical: string | null) => {
+    setSelectedTopic(null);
+    setSelectedLexical(lexical);
+    setIsDrawerOpen(false);
+  };
+
+  // Select topic and close drawer after selection
+  const handleTopicSelection = (topic: string | null) => {
+    setSelectedLexical(null);
+    setSelectedTopic(topic);
+    setIsDrawerOpen(false);
+  };
 
   const toggleLanguage = (lang: string) => {
     if (lang !== language) {
@@ -137,6 +164,7 @@ export default function App() {
       language={language}
       lexical={item.lexical}
       toggleLanguage={toggleLanguage}
+      topic={null}
     />
   );
 
@@ -157,8 +185,15 @@ export default function App() {
     <GestureHandlerRootView style={styles.container}>
       {/* <SafeAreaView style={styles.safeAreaContainer}> */}
       {/* Drawer - Start */}
-      <Drawer isOpen={isDrawerOpen} toggleDrawer={toggleDrawer} />
+      <Drawer
+        isOpen={isDrawerOpen}
+        toggleDrawer={toggleDrawer}
+        onSelectTopic={handleTopicSelection}
+        onSelectLexical={handleLexicalSelection}
+        scrollToTop={scrollToTop}
+      />
       {/* Drawer - End */}
+
       <View style={styles.mainContainer}>
         <StatusBar barStyle="dark-content" hidden={true} />
         <View style={styles.topIcons}>
@@ -169,7 +204,7 @@ export default function App() {
         </View>
         <FlatList
           ref={flatListRef}
-          data={vocabularyData}
+          data={filteredData}
           renderItem={renderItem}
           keyExtractor={(item, index) => index.toString()}
           pagingEnabled
@@ -183,7 +218,7 @@ export default function App() {
         {/* Floating Action Button */}
         <TouchableOpacity
           style={styles.fab}
-          onPress={scrollToTop} // Scroll to top when pressed
+          //onPress={scrollToTop} // Scroll to top when pressed
         >
           <Text style={styles.fabText}>↑</Text>
         </TouchableOpacity>
@@ -322,8 +357,9 @@ const styles = StyleSheet.create({
     width: "100%",
     zIndex: 5,
     position: "absolute",
-    top: 56,
+    top: 60,
   },
+  topic: {},
 
   //FLoating action button
   fab: {
@@ -343,5 +379,9 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 30,
     fontWeight: "bold",
+  },
+
+  test: {
+    marginTop: 40,
   },
 });

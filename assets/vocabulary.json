@@ -1,344 +1,679 @@
+
 [
+  {
+    "word": "사랑",
+    "pronunciation": "sa-rang",
+    "definition_en": "Love",
+    "definition_kr": "어떤 사람이나 존재를 몹시 아끼고 귀중히 여기는 마음. 또는 그런 일.",
+    "lexical": "(n.)",
+    "example_en": "I love you.",
+    "example_kr": "사랑해요."
+  },
+  {
+    "word": "안녕하세요",
+    "pronunciation": "an-nyeong-ha-se-yo",
+    "definition_en": "Hello (formal)",
+    "definition_kr": "상대방에게 하는 공손한 인사말",
+    "lexical": " ",
+    "example_en": "Hello, how are you?",
+    "example_kr": "안녕하세요, 잘 지내셨어요?"
+  },
+  {
+    "word": "감사합니다",
+    "pronunciation": "gam-sa-ham-ni-da",
+    "definition_en": "Thank you (formal)",
+    "definition_kr": "고마움을 표현하는 공손한 말",
+    "lexical": " ",
+    "example_en": "Thank you for your help.",
+    "example_kr": "도와주셔서 감사합니다."
+  },
+  {
+    "word": "친구",
+    "pronunciation": "chin-gu",
+    "definition_en": "Friend",
+    "definition_kr": "가깝게 오래 사귄 사람.",
+    "lexical": "(n.)",
+    "example_en": "She is my best friend.",
+    "example_kr": "그녀는 제 가장 친한 친구예요."
+  },
+  {
+    "word": "음식",
+    "pronunciation": "eum-sig",
+    "definition_en": "Food",
+    "definition_kr": "먹을 수 있는 물건",
+    "lexical": "(n.)",
+    "example_en": "Korean food is delicious.",
+    "example_kr": "한국 음식이 맛있어요."
+  },
+  {
+    "word": "물",
+    "pronunciation": "mul",
+    "definition_en": "Water",
+    "definition_kr": "생명 유지에 필수적인 무색 무취의 액체",
+    "lexical": "(n.)",
+    "example_en": "Can I have some water?",
+    "example_kr": "물 좀 주시겠어요?"
+  },
+  {
+    "word": "학교",
+    "pronunciation": "hak-gyo",
+    "definition_en": "School",
+    "definition_kr": "교육을 받는 곳",
+    "lexical": "(n.)",
+    "example_en": "I go to school.",
+    "example_kr": "저는 학교에 다녀요."
+  },
+  {
+    "word": "집",
+    "pronunciation": "jip",
+    "definition_en": "House, home",
+    "definition_kr": "사람이 사는 건물이나 장소",
+    "lexical": "(n.)",
+    "example_en": "I'm going home.",
+    "example_kr": "집에 가요."
+  },
+  {
+    "word": "시간",
+    "pronunciation": "si-gan",
+    "definition_en": "Time",
+    "definition_kr": "어떤 시각에서 다른 시각까지의 걸림",
+    "lexical": "(n.)",
+    "example_en": "What time is it?",
+    "example_kr": "지금 몇 시예요?"
+  },
+  {
+    "word": "가족",
+    "pronunciation": "ga-jok",
+    "definition_en": "Family",
+    "definition_kr": "혈연으로 맺어진 친족 관계",
+    "lexical": "(n.)",
+    "example_en": "My family is important to me.",
+    "example_kr": "제 가족은 저에게 중요해요."
+  },
+  {
+    "word": "배고파요",
+    "pronunciation": "bae-go-pa-yo",
+    "definition_en": "I'm hungry",
+    "definition_kr": "음식을 먹고 싶은 상태",
+    "lexical": " ",
+    "example_en": "I'm really hungry.",
+    "example_kr": "정말 배고파요."
+  },
+  {
+    "word": "피곤해요",
+    "pronunciation": "pi-gon-hae-yo",
+    "definition_en": "I'm tired",
+    "definition_kr": "몸이나 마음이 지친 상태",
+    "lexical": " ",
+    "example_en": "I'm very tired today.",
+    "example_kr": "오늘 너무 피곤해요."
+  },
+  {
+    "word": "날씨",
+    "pronunciation": "nal-ssi",
+    "definition_en": "Weather",
+    "definition_kr": "그날그날의 기후 상태",
+    "lexical": "(n.)",
+    "example_en": "How's the weather today?",
+    "example_kr": "오늘 날씨가 어때요?"
+  },
+  {
+    "word": "이름",
+    "pronunciation": "i-reum",
+    "definition_en": "Name",
+    "definition_kr": "사람이나 사물을 구별하기 위해 부르는 말",
+    "lexical": "(n.)",
+    "example_en": "What's your name?",
+    "example_kr": "이름이 뭐예요?"
+  },
+  {
+    "word": "전화",
+    "pronunciation": "jeon-hwa",
+    "definition_en": "Phone, telephone",
+    "definition_kr": "음성을 전기 신호로 바꾸어 멀리 전하는 통신 기기",
+    "lexical": "(n.)",
+    "example_en": "Can I use your phone?",
+    "example_kr": "전화 좀 써도 될까요?"
+  },
+  {
+    "word": "죄송합니다",
+    "pronunciation": "joe-song-ham-ni-da",
+    "definition_en": "I'm sorry (formal)",
+    "definition_kr": "잘못이나 실수에 대해 사과하는 공손한 표현",
+    "lexical": " ",
+    "example_en": "I'm sorry for being late.",
+    "example_kr": "늦어서 죄송합니다."
+  },
+  {
+    "word": "화장실",
+    "pronunciation": "hwa-jang-sil",
+    "definition_en": "Bathroom, restroom",
+    "definition_kr": "용변을 보거나 씻을 수 있는 방",
+    "lexical": "(n.)",
+    "example_en": "Where is the bathroom?",
+    "example_kr": "화장실이 어디예요?"
+  },
+  {
+    "word": "지하철",
+    "pronunciation": "ji-ha-cheol",
+    "definition_en": "Subway",
+    "definition_kr": "땅 속을 다니는 전철",
+    "lexical": "(n.)",
+    "example_en": "I take the subway to work.",
+    "example_kr": "직장에 지하철을 타고 가요."
+  },
+  {
+    "word": "공부",
+    "pronunciation": "gong-bu",
+    "definition_en": "Study",
+    "definition_kr": "학문을 배우고 익히는 것",
+    "lexical": "(n.)",
+    "example_en": "I study Korean.",
+    "example_kr": "한국어를 공부해요."
+  },
+  {
+    "word": "커피",
+    "pronunciation": "keo-pi",
+    "definition_en": "Coffee",
+    "definition_kr": "커피 나무의 열매를 볶아서 만든 음료",
+    "lexical": "(n.)",
+    "example_en": "Would you like some coffee?",
+    "example_kr": "커피 드실래요?"
+  },
+  {
+    "word": "일",
+    "pronunciation": "il",
+    "definition_en": "Work",
+    "definition_kr": "직업이나 업무로 하는 활동",
+    "lexical": "(n.)",
+    "example_en": "I have a lot of work today.",
+    "example_kr": "오늘 일이 많아요."
+  },
+  {
+    "word": "영화",
+    "pronunciation": "yeong-hwa",
+    "definition_en": "Movie",
+    "definition_kr": "움직이는 그림을 스크린에 투영하는 예술",
+    "lexical": "(n.)",
+    "example_en": "Let's watch a movie.",
+    "example_kr": "영화 볼까요?"
+  },
+  {
+    "word": "버스",
+    "pronunciation": "beo-seu",
+    "definition_en": "Bus",
+    "definition_kr": "많은 사람을 한꺼번에 태워 나르는 대중교통",
+    "lexical": "(n.)",
+    "example_en": "The bus is coming.",
+    "example_kr": "버스가 와요."
+  },
+  {
+    "word": "아파요",
+    "pronunciation": "a-pa-yo",
+    "definition_en": "It hurts",
+    "definition_kr": "신체적으로 고통을 느끼는 상태",
+    "lexical": " ",
+    "example_en": "My head hurts.",
+    "example_kr": "머리가 아파요."
+  },
+  {
+    "word": "전공",
+    "pronunciation": "jeon-gong",
+    "definition_en": "Major (academic)",
+    "definition_kr": "대학에서 전문적으로 공부하는 학문 분야",
+    "lexical": "(n.)",
+    "example_en": "What's your major?",
+    "example_kr": "전공이 뭐예요?"
+  },
+  {
+    "word": "운동",
+    "pronunciation": "un-dong",
+    "definition_en": "Exercise",
+    "definition_kr": "건강을 위해 몸을 움직이는 활동",
+    "lexical": "(n.)",
+    "example_en": "I exercise every morning.",
+    "example_kr": "매일 아침 운동해요."
+  },
+  {
+    "word": "은행",
+    "pronunciation": "eun-haeng",
+    "definition_en": "Bank",
+    "definition_kr": "돈을 맡기고 빌리는 금융 기관",
+    "lexical": "(n.)",
+    "example_en": "I need to go to the bank.",
+    "example_kr": "은행에 가야 해요."
+  },
+  {
+    "word": "주말",
+    "pronunciation": "ju-mal",
+    "definition_en": "Weekend",
+    "definition_kr": "한 주의 마지막 날들(토요일과 일요일)",
+    "lexical": "(n.)",
+    "example_en": "What are your weekend plans?",
+    "example_kr": "주말 계획이 뭐예요?"
+  },
+  {
+    "word": "책",
+    "pronunciation": "chaek",
+    "definition_en": "Book",
+    "definition_kr": "글이나 그림을 담은 출판물",
+    "lexical": "(n.)",
+    "example_en": "I like reading books.",
+    "example_kr": "책 읽는 것을 좋아해요."
+  },
+  {
+    "word": "이해",
+    "pronunciation": "i-hae",
+    "definition_en": "Understanding",
+    "definition_kr": "사물이나 상황을 파악하고 받아들이는 것",
+    "lexical": "(n.)",
+    "example_en": "I understand.",
+    "example_kr": "이해했어요."
+  },
+  {
+    "word": "회사",
+    "pronunciation": "hoe-sa",
+    "definition_en": "Company",
+    "definition_kr": "영리를 목적으로 하는 사업체",
+    "lexical": "(n.)",
+    "example_en": "I work at a company.",
+    "example_kr": "저는 회사에서 일해요."
+  },
+  {
+    "word": "식당",
+    "pronunciation": "sik-dang",
+    "definition_en": "Restaurant",
+    "definition_kr": "음식을 만들어 파는 가게",
+    "lexical": "(n.)",
+    "example_en": "Let's go to a restaurant.",
+    "example_kr": "식당에 갈까요?"
+  },
+  {
+    "word": "여행",
+    "pronunciation": "yeo-haeng",
+    "definition_en": "Travel",
+    "definition_kr": "다른 곳으로 이동하며 구경하는 것",
+    "lexical": "(n.)",
+    "example_en": "I want to travel to Korea.",
+    "example_kr": "한국으로 여행가고 싶어요."
+  },
+  {
+    "word": "취미",
+    "pronunciation": "chi-mee",
+    "definition_en": "Hobby",
+    "definition_kr": "전문적으로 하는 것이 아니라 즐기기 위하여 하는 일",
+    "lexical": "(n.)",
+    "example_en": "What's your hobby?",
+    "example_kr": "취미가 어떻게 되세요?"
+  },
+  {
+    "word": "큰",
+    "pronunciation": "keun",
+    "definition_en": "Big",
+    "definition_kr": "크기가 큰 상태",
+    "lexical": "(adj.)",
+    "example_en": "The house is big.",
+    "example_kr": "집이 커요.",
+    "topic": "etc"
+  },
+  {
+    "word": "작은",
+    "pronunciation": "ja-geun",
+    "definition_en": "Small",
+    "definition_kr": "크기가 작은 상태",
+    "lexical": "(adj.)",
+    "example_en": "The room is small.",
+    "example_kr": "방이 작아요.",
+    "topic": "etc"
+  },
+  {
+    "word": "먼",
+    "pronunciation": "meon",
+    "definition_en": "Far",
+    "definition_kr": "거리가 먼 상태",
+    "lexical": "(adj.)",
+    "example_en": "The store is far away.",
+    "example_kr": "가게가 멀어요.",
+    "topic": "travel"
+  },
+  {
+    "word": "가까운",
+    "pronunciation": "ga-kka-un",
+    "definition_en": "Close",
+    "definition_kr": "거리가 가까운 상태",
+    "lexical": "(adj.)",
+    "example_en": "The park is close.",
+    "example_kr": "공원이 가까워요.",
+    "topic": "travel"
+  },
+  {
+    "word": "쉬운",
+    "pronunciation": "swi-un",
+    "definition_en": "Easy",
+    "definition_kr": "간단하거나 쉬운 상태",
+    "lexical": "(adj.)",
+    "example_en": "The problem is easy.",
+    "example_kr": "문제가 쉬워요.",
+    "topic": "etc"
+  },
+  {
+    "word": "어려운",
+    "pronunciation": "eo-ryeo-un",
+    "definition_en": "Difficult",
+    "definition_kr": "복잡하거나 어려운 상태",
+    "lexical": "(adj.)",
+    "example_en": "The question is difficult.",
+    "example_kr": "질문이 어려워요.",
+    "topic": "etc"
+  },
+  {
+    "word": "추운",
+    "pronunciation": "chu-un",
+    "definition_en": "Cold",
+    "definition_kr": "온도가 낮은 상태",
+    "lexical": "(adj.)",
+    "example_en": "The weather is cold.",
+    "example_kr": "날씨가 추워요.",
+    "topic": "travel"
+  },
+  {
+    "word": "더운",
+    "pronunciation": "deo-un",
+    "definition_en": "Hot",
+    "definition_kr": "온도가 높은 상태",
+    "lexical": "(adj.)",
+    "example_en": "The day is hot.",
+    "example_kr": "날이 더워요.",
+    "topic": "travel"
+  },
+  {
+    "word": "귀여운",
+    "pronunciation": "gwi-yeo-un",
+    "definition_en": "Cute",
+    "definition_kr": "사랑스럽거나 깜찍한 상태",
+    "lexical": "(adj.)",
+    "example_en": "The puppy is cute.",
+    "example_kr": "강아지가 귀여워요.",
+    "topic": "native words"
+  },
+  {
+    "word": "좁은",
+    "pronunciation": "jop-eun",
+    "definition_en": "Narrow",
+    "definition_kr": "폭이 좁은 상태",
+    "lexical": "(adj.)",
+    "example_en": "The road is narrow.",
+    "example_kr": "길이 좁아요.",
+    "topic": "etc"
+  },
+  {
+    "word": "넓은",
+    "pronunciation": "neol-beun",
+    "definition_en": "Spacious",
+    "definition_kr": "공간이 넓은 상태",
+    "lexical": "(adj.)",
+    "example_en": "The house is spacious.",
+    "example_kr": "집이 넓어요.",
+    "topic": "etc"
+  },
+  {
+    "word": "늦은",
+    "pronunciation": "neut-eun",
+    "definition_en": "Late",
+    "definition_kr": "시간이 늦은 상태",
+    "lexical": "(adj.)",
+    "example_en": "He is late.",
+    "example_kr": "그가 늦었어요.",
+    "topic": "etc"
+  },
+  {
+    "word": "싼",
+    "pronunciation": "ssan",
+    "definition_en": "Cheap",
+    "definition_kr": "값이 낮은 상태",
+    "lexical": "(adj.)",
+    "example_en": "This item is cheap.",
+    "example_kr": "이 물건 싸요.",
+    "topic": "business"
+  },
+  {
+    "word": "비싼",
+    "pronunciation": "bi-ssan",
+    "definition_en": "Expensive",
+    "definition_kr": "값이 높은 상태",
+    "lexical": "(adj.)",
+    "example_en": "That bag is expensive.",
+    "example_kr": "가방이 비싸요.",
+    "topic": "business"
+  },
+  {
+    "word": "아픈",
+    "pronunciation": "a-peun",
+    "definition_en": "Sick",
+    "definition_kr": "몸이 아픈 상태",
+    "lexical": "(adj.)",
+    "example_en": "He is sick today.",
+    "example_kr": "그는 오늘 아파요.",
+    "topic": "emotion"
+  },
+  {
+    "word": "슬픈",
+    "pronunciation": "seul-peun",
+    "definition_en": "Sad",
+    "definition_kr": "기분이 우울한 상태",
+    "lexical": "(adj.)",
+    "example_en": "It's a sad day.",
+    "example_kr": "슬픈날이네요.",
+    "topic": "emotion"
+  },
+  {
+    "word": "느린",
+    "pronunciation": "neu-rin",
+    "definition_en": "Slow",
+    "definition_kr": "속도가 느린 상태",
+    "lexical": "(adj.)",
+    "example_en": "The train is slow.",
+    "example_kr": "기차가 느려요.",
+    "topic": "etc"
+  },
+  {
+    "word": "빠른",
+    "pronunciation": "ppa-reun",
+    "definition_en": "Fast",
+    "definition_kr": "속도가 빠른 상태",
+    "lexical": "(adj.)",
+    "example_en": "The car is fast.",
+    "example_kr": "차가 빨라요.",
+    "topic": "etc"
+  },
+  {
+    "word": "같은",
+    "pronunciation": "gat-eun",
+    "definition_en": "Same",
+    "definition_kr": "동일한 상태",
+    "lexical": "(adj.)",
+    "example_en": "The results are the same.",
+    "example_kr": "결과가 같아요.",
+    "topic": "etc"
+  },
+  {
+    "word": "예쁜",
+    "pronunciation": "ye-ppeun",
+    "definition_en": "Pretty",
+    "definition_kr": "아름답고 예쁜 상태",
+    "lexical": "(adj.)",
+    "example_en": "The flowers are pretty.",
+    "example_kr": "꽃이 예뻐요.",
+    "topic": "native words"
+  },
+  {
+    "word": "좋은",
+    "pronunciation": "jo-eun",
+    "definition_en": "Good",
+    "definition_kr": "상태가 좋은",
+    "lexical": "(adj.)",
+    "example_en": "This is a good idea.",
+    "example_kr": "이건 좋은 아이디어예요.",
+    "topic": "etc"
+  },
+  {
+    "word": "많은",
+    "pronunciation": "manh-eun",
+    "definition_en": "Much",
+    "definition_kr": "양이 많은 상태",
+    "lexical": "(adj.)",
+    "example_en": "There are many people.",
+    "example_kr": "사람이 많아요.",
+    "topic": "etc"
+  },
+  {
+    "word": "적은",
+    "pronunciation": "jeok-eun",
+    "definition_en": "Few",
+    "definition_kr": "양이 적은 상태",
+    "lexical": "(adj.)",
+    "example_en": "There are few cars.",
+    "example_kr": "차가 적어요.",
+    "topic": "etc"
+  },
+  {
+    "word": "얇은",
+    "pronunciation": "yal-beun",
+    "definition_en": "Thin",
+    "definition_kr": "두께가 얇은 상태",
+    "lexical": "(adj.)",
+    "example_en": "The paper is thin.",
+    "example_kr": "종이가 얇아요.",
+    "topic": "etc"
+  },
+  {
+    "word": "두꺼운",
+    "pronunciation": "du-kkeo-un",
+    "definition_en": "Thick",
+    "definition_kr": "두께가 두꺼운 상태",
+    "lexical": "(adj.)",
+    "example_en": "The book is thick.",
+    "example_kr": "책이 두꺼워요.",
+    "topic": "etc"
+  },
+  {
+    "word": "깨끗한",
+    "pronunciation": "kkae-kkeut-han",
+    "definition_en": "Clean",
+    "definition_kr": "상태가 깨끗한",
+    "lexical": "(adj.)",
+    "example_en": "The room is clean.",
+    "example_kr": "방이 깨끗해요.",
+    "topic": "etc"
+  },
+  {
+    "word": "더러운",
+    "pronunciation": "deo-reo-un",
+    "definition_en": "Dirty",
+    "definition_kr": "상태가 더러운",
+    "lexical": "(adj.)",
+    "example_en": "The floor is dirty.",
+    "example_kr": "바닥이 더러워요.",
+    "topic": "etc"
+  },
+  {
+    "word": "밝은",
+    "pronunciation": "bal-geun",
+    "definition_en": "Bright",
+    "definition_kr": "밝은 상태",
+    "lexical": "(adj.)",
+    "example_en": "The light is bright.",
+    "example_kr": "빛이 밝아요.",
+    "topic": "etc"
+  },
+  {
+    "word": "어두운",
+    "pronunciation": "eo-du-un",
+    "definition_en": "Dark",
+    "definition_kr": "어두운 상태",
+    "lexical": "(adj.)",
+    "example_en": "The room is dark.",
+    "example_kr": "방이 어두워요.",
+    "topic": "etc"
+  },
+  {
+    "word": "긴",
+    "pronunciation": "gin",
+    "definition_en": "Long",
+    "definition_kr": "길이가 긴 상태",
+    "lexical": "(adj.)",
+    "example_en": "The rope is long.",
+    "example_kr": "줄이 길어요.",
+    "topic": "etc"
+  },
+  {
+    "word": "짧은",
+    "pronunciation": "jjalb-eun",
+    "definition_en": "Short",
+    "definition_kr": "길이가 짧은 상태",
+    "lexical": "(adj.)",
+    "example_en": "The pencil is short.",
+    "example_kr": "연필이 짧아요.",
+    "topic": "etc"
+  },
+  {
+    "word": "짜다",
+    "pronunciation": "jja-da",
+    "definition_en": "Salty",
+    "definition_kr": "짠 음식",
+    "lexical": "(adj.)",
+    "example_en": "The soup is too salty.",
+    "example_kr": "국이 너무 짜요.",
+    "topic": "food"
+  },
     {
-      "word": "사랑",
-      "pronunciation": "sa-rang",
-      "definition_en": "Love",
-      "definition_kr": "어떤 사람이나 존재를 몹시 아끼고 귀중히 여기는 마음. 또는 그런 일.",
-      "lexical": "(n.)",
-      "example_en": "I love you.",
-      "example_kr": "사랑해요."
+      "word": "가다",
+      "pronunciation": "ga-da",
+      "definition_en": "To go",
+      "definition_kr": "어떤 장소로 이동하다",
+      "lexical": "(v.)",
+      "example_en": "I go to school every day.",
+      "example_kr": "나는 매일 학교에 가요.",
+      "topic": "etc"
     },
     {
-      "word": "안녕하세요",
-      "pronunciation": "an-nyeong-ha-se-yo",
-      "definition_en": "Hello (formal)",
-      "definition_kr": "상대방에게 하는 공손한 인사말",
-      "lexical": " ",
-      "example_en": "Hello, how are you?",
-      "example_kr": "안녕하세요, 잘 지내셨어요?"
+      "word": "먹다",
+      "pronunciation": "meok-da",
+      "definition_en": "To eat",
+      "definition_kr": "음식을 섭취하다",
+      "lexical": "(v.)",
+      "example_en": "He is eating an apple.",
+      "example_kr": "그는 사과를 먹고 있어요.",
+      "topic": "food"
     },
     {
-      "word": "감사합니다",
-      "pronunciation": "gam-sa-ham-ni-da",
-      "definition_en": "Thank you (formal)",
-      "definition_kr": "고마움을 표현하는 공손한 말",
-      "lexical": " ",
-      "example_en": "Thank you for your help.",
-      "example_kr": "도와주셔서 감사합니다."
+      "word": "보다",
+      "pronunciation": "bo-da",
+      "definition_en": "To see",
+      "definition_kr": "눈으로 무엇을 인지하다",
+      "lexical": "(v.)",
+      "example_en": "Did you see the movie?",
+      "example_kr": "영화를 봤어요?",
+      "topic": "etc"
     },
     {
-      "word": "친구",
-      "pronunciation": "chin-gu",
-      "definition_en": "Friend",
-      "definition_kr": "가깝게 오래 사귄 사람.",
-      "lexical": "(n.)",
-      "example_en": "She is my best friend.",
-      "example_kr": "그녀는 제 가장 친한 친구예요."
+      "word": "만나다",
+      "pronunciation": "man-na-da",
+      "definition_en": "To meet",
+      "definition_kr": "다른 사람과 함께 만나다",
+      "lexical": "(v.)",
+      "example_en": "Let's meet tomorrow.",
+      "example_kr": "내일 만나요.",
+      "topic": "etc"
     },
     {
-      "word": "음식",
-      "pronunciation": "eum-sig",
-      "definition_en": "Food",
-      "definition_kr": "먹을 수 있는 물건",
-      "lexical": "(n.)",
-      "example_en": "Korean food is delicious.",
-      "example_kr": "한국 음식이 맛있어요."
-    },
-    {
-      "word": "물",
-      "pronunciation": "mul",
-      "definition_en": "Water",
-      "definition_kr": "생명 유지에 필수적인 무색 무취의 액체",
-      "lexical": "(n.)",
-      "example_en": "Can I have some water?",
-      "example_kr": "물 좀 주시겠어요?"
-    },
-    {
-      "word": "학교",
-      "pronunciation": "hak-gyo",
-      "definition_en": "School",
-      "definition_kr": "교육을 받는 곳",
-      "lexical": "(n.)",
-      "example_en": "I go to school.",
-      "example_kr": "저는 학교에 다녀요."
-    },
-    {
-      "word": "집",
-      "pronunciation": "jip",
-      "definition_en": "House, home",
-      "definition_kr": "사람이 사는 건물이나 장소",
-      "lexical": "(n.)",
-      "example_en": "I'm going home.",
-      "example_kr": "집에 가요."
-    },
-    {
-      "word": "시간",
-      "pronunciation": "si-gan",
-      "definition_en": "Time",
-      "definition_kr": "어떤 시각에서 다른 시각까지의 걸림",
-      "lexical": "(n.)",
-      "example_en": "What time is it?",
-      "example_kr": "지금 몇 시예요?"
-    },
-    {
-      "word": "좋아요",
-      "pronunciation": "jo-a-yo",
-      "definition_en": "I like it",
-      "definition_kr": "마음에 들거나 긍정적으로 생각함을 나타내는 표현",
-      "lexical": " ",
-      "example_en": "I like this book.",
-      "example_kr": "이 책이 좋아요."
-    },
-    {
-      "word": "가족",
-      "pronunciation": "ga-jok",
-      "definition_en": "Family",
-      "definition_kr": "혈연으로 맺어진 친족 관계",
-      "lexical": "(n.)",
-      "example_en": "My family is important to me.",
-      "example_kr": "제 가족은 저에게 중요해요."
-    },
-    {
-      "word": "배고파요",
-      "pronunciation": "bae-go-pa-yo",
-      "definition_en": "I'm hungry",
-      "definition_kr": "음식을 먹고 싶은 상태",
-      "lexical": " ",
-      "example_en": "I'm really hungry.",
-      "example_kr": "정말 배고파요."
-    },
-    {
-      "word": "피곤해요",
-      "pronunciation": "pi-gon-hae-yo",
-      "definition_en": "I'm tired",
-      "definition_kr": "몸이나 마음이 지친 상태",
-      "lexical": " ",
-      "example_en": "I'm very tired today.",
-      "example_kr": "오늘 너무 피곤해요."
-    },
-    {
-      "word": "날씨",
-      "pronunciation": "nal-ssi",
-      "definition_en": "Weather",
-      "definition_kr": "그날그날의 기후 상태",
-      "lexical": "(n.)",
-      "example_en": "How's the weather today?",
-      "example_kr": "오늘 날씨가 어때요?"
-    },
-    {
-      "word": "이름",
-      "pronunciation": "i-reum",
-      "definition_en": "Name",
-      "definition_kr": "사람이나 사물을 구별하기 위해 부르는 말",
-      "lexical": "(n.)",
-      "example_en": "What's your name?",
-      "example_kr": "이름이 뭐예요?"
-    },
-    {
-      "word": "전화",
-      "pronunciation": "jeon-hwa",
-      "definition_en": "Phone, telephone",
-      "definition_kr": "음성을 전기 신호로 바꾸어 멀리 전하는 통신 기기",
-      "lexical": "(n.)",
-      "example_en": "Can I use your phone?",
-      "example_kr": "전화 좀 써도 될까요?"
-    },
-    {
-      "word": "죄송합니다",
-      "pronunciation": "joe-song-ham-ni-da",
-      "definition_en": "I'm sorry (formal)",
-      "definition_kr": "잘못이나 실수에 대해 사과하는 공손한 표현",
-      "lexical": " ",
-      "example_en": "I'm sorry for being late.",
-      "example_kr": "늦어서 죄송합니다."
-    },
-    {
-      "word": "화장실",
-      "pronunciation": "hwa-jang-sil",
-      "definition_en": "Bathroom, restroom",
-      "definition_kr": "용변을 보거나 씻을 수 있는 방",
-      "lexical": "(n.)",
-      "example_en": "Where is the bathroom?",
-      "example_kr": "화장실이 어디예요?"
-    },
-    {
-      "word": "맛있어요",
-      "pronunciation": "ma-si-sseo-yo",
-      "definition_en": "Delicious",
-      "definition_kr": "맛이 좋은 상태",
-      "lexical": "(adj.)",
-      "example_en": "This food is delicious.",
-      "example_kr": "이 음식이 맛있어요."
-    },
-    {
-      "word": "지하철",
-      "pronunciation": "ji-ha-cheol",
-      "definition_en": "Subway",
-      "definition_kr": "땅 속을 다니는 전철",
-      "lexical": "(n.)",
-      "example_en": "I take the subway to work.",
-      "example_kr": "직장에 지하철을 타고 가요."
-    },
-    {
-      "word": "공부",
-      "pronunciation": "gong-bu",
-      "definition_en": "Study",
-      "definition_kr": "학문을 배우고 익히는 것",
-      "lexical": "(n.)",
-      "example_en": "I study Korean.",
-      "example_kr": "한국어를 공부해요."
-    },
-    {
-      "word": "커피",
-      "pronunciation": "keo-pi",
-      "definition_en": "Coffee",
-      "definition_kr": "커피 나무의 열매를 볶아서 만든 음료",
-      "lexical": "(n.)",
-      "example_en": "Would you like some coffee?",
-      "example_kr": "커피 드실래요?"
-    },
-    {
-      "word": "일",
-      "pronunciation": "il",
-      "definition_en": "Work",
-      "definition_kr": "직업이나 업무로 하는 활동",
-      "lexical": "(n.)",
-      "example_en": "I have a lot of work today.",
-      "example_kr": "오늘 일이 많아요."
-    },
-    {
-      "word": "영화",
-      "pronunciation": "yeong-hwa",
-      "definition_en": "Movie",
-      "definition_kr": "움직이는 그림을 스크린에 투영하는 예술",
-      "lexical": "(n.)",
-      "example_en": "Let's watch a movie.",
-      "example_kr": "영화 볼까요?"
-    },
-    {
-      "word": "버스",
-      "pronunciation": "beo-seu",
-      "definition_en": "Bus",
-      "definition_kr": "많은 사람을 한꺼번에 태워 나르는 대중교통",
-      "lexical": "(n.)",
-      "example_en": "The bus is coming.",
-      "example_kr": "버스가 와요."
-    },
-    {
-      "word": "아파요",
-      "pronunciation": "a-pa-yo",
-      "definition_en": "It hurts",
-      "definition_kr": "신체적으로 고통을 느끼는 상태",
-      "lexical": " ",
-      "example_en": "My head hurts.",
-      "example_kr": "머리가 아파요."
-    },
-    {
-      "word": "춥다",
-      "pronunciation": "chup-da",
-      "definition_en": "Cold",
-      "definition_kr": "기온이 낮아 몸에 차가움을 느끼는 상태",
-      "lexical": "(adj.)",
-      "example_en": "It's cold today.",
-      "example_kr": "오늘 추워요."
-    },
-    {
-      "word": "덥다",
-      "pronunciation": "deop-da",
-      "definition_en": "Hot",
-      "definition_kr": "기온이 높아 몸에 더움을 느끼는 상태",
-      "lexical": "(adj.)",
-      "example_en": "It's hot outside.",
-      "example_kr": "밖이 더워요."
-    },
-    {
-      "word": "전공",
-      "pronunciation": "jeon-gong",
-      "definition_en": "Major (academic)",
-      "definition_kr": "대학에서 전문적으로 공부하는 학문 분야",
-      "lexical": "(n.)",
-      "example_en": "What's your major?",
-      "example_kr": "전공이 뭐예요?"
-    },
-    {
-      "word": "운동",
-      "pronunciation": "un-dong",
-      "definition_en": "Exercise",
-      "definition_kr": "건강을 위해 몸을 움직이는 활동",
-      "lexical": "(n.)",
-      "example_en": "I exercise every morning.",
-      "example_kr": "매일 아침 운동해요."
-    },
-    {
-      "word": "은행",
-      "pronunciation": "eun-haeng",
-      "definition_en": "Bank",
-      "definition_kr": "돈을 맡기고 빌리는 금융 기관",
-      "lexical": "(n.)",
-      "example_en": "I need to go to the bank.",
-      "example_kr": "은행에 가야 해요."
-    },
-    {
-      "word": "주말",
-      "pronunciation": "ju-mal",
-      "definition_en": "Weekend",
-      "definition_kr": "한 주의 마지막 날들(토요일과 일요일)",
-      "lexical": "(n.)",
-      "example_en": "What are your weekend plans?",
-      "example_kr": "주말 계획이 뭐예요?"
-    },
-    {
-      "word": "책",
-      "pronunciation": "chaek",
-      "definition_en": "Book",
-      "definition_kr": "글이나 그림을 담은 출판물",
-      "lexical": "(n.)",
-      "example_en": "I like reading books.",
-      "example_kr": "책 읽는 것을 좋아해요."
-    },
-    {
-      "word": "이해",
-      "pronunciation": "i-hae",
-      "definition_en": "Understanding",
-      "definition_kr": "사물이나 상황을 파악하고 받아들이는 것",
-      "lexical": "(n.)",
-      "example_en": "I understand.",
-      "example_kr": "이해했어요."
-    },
-    {
-      "word": "회사",
-      "pronunciation": "hoe-sa",
-      "definition_en": "Company",
-      "definition_kr": "영리를 목적으로 하는 사업체",
-      "lexical": "(n.)",
-      "example_en": "I work at a company.",
-      "example_kr": "저는 회사에서 일해요."
-    },
-    {
-      "word": "식당",
-      "pronunciation": "sik-dang",
-      "definition_en": "Restaurant",
-      "definition_kr": "음식을 만들어 파는 가게",
-      "lexical": "(n.)",
-      "example_en": "Let's go to a restaurant.",
-      "example_kr": "식당에 갈까요?"
-    },
-    {
-      "word": "여행",
-      "pronunciation": "yeo-haeng",
-      "definition_en": "Travel",
-      "definition_kr": "다른 곳으로 이동하며 구경하는 것",
-      "lexical": "(n.)",
-      "example_en": "I want to travel to Korea.",
-      "example_kr": "한국으로 여행가고 싶어요."
-    },
-    {
-      "word": "취미",
-      "pronunciation": "chi-mee",
-      "definition_en": "Hobby",
-      "definition_kr": "전문적으로 하는 것이 아니라 즐기기 위하여 하는 일",
-      "lexical": "(n.)",
-      "example_en": "What's your hobby?",
-      "example_kr": "취미가 어떻게 되세요?"
+      "word": "읽다",
+      "pronunciation": "ilk-da",
+      "definition_en": "To read",
+      "definition_kr": "글이나 책을 소리 내어 읽다",
+      "lexical": "(v.)",
+      "example_en": "She is reading a book.",
+      "example_kr": "그녀는 책을 읽고 있어요.",
+      "topic": "etc"
     }
-  ]
+]
