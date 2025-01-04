@@ -218,7 +218,7 @@ export default function App() {
         {/* Floating Action Button */}
         <TouchableOpacity
           style={styles.fab}
-          //onPress={scrollToTop} // Scroll to top when pressed
+          onPress={scrollToTop} // Scroll to top when pressed
         >
           <Text style={styles.fabText}>↑</Text>
         </TouchableOpacity>
