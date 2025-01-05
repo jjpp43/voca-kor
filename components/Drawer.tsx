@@ -96,7 +96,7 @@ const Drawer: React.FC<DrawerProps> = ({
         }}
       >
         <ScrollView style={styles.list}>
-          <Text style={styles.title}>Explore</Text>
+          <Text style={styles.title}>Hangul</Text>
           <DrawerItem
             primaryText="A"
             secondaryText="ll"
@@ -104,7 +104,17 @@ const Drawer: React.FC<DrawerProps> = ({
             onPress={() => {
               onSelectTopic(null);
               onSelectLexical(null);
-              scrollToTop(); // Scroll to top after selection
+              //scrollToTop(); // Scroll to top after selection
+            }}
+          />
+          <DrawerItem
+            primaryText="S"
+            secondaryText="aved"
+            locked={false}
+            onPress={() => {
+              onSelectTopic(null);
+              onSelectLexical(null);
+              //scrollToTop(); // Scroll to top after selection
             }}
           />
           <View style={{ paddingVertical: 24 }}></View>
@@ -115,7 +125,7 @@ const Drawer: React.FC<DrawerProps> = ({
             locked={false}
             onPress={() => {
               onSelectLexical("(n.)");
-              scrollToTop();
+              //scrollToTop();
             }}
           />
           <DrawerItem
@@ -124,7 +134,7 @@ const Drawer: React.FC<DrawerProps> = ({
             locked={false}
             onPress={() => {
               onSelectLexical("(v.)");
-              scrollToTop();
+              //scrollToTop();
             }}
           />
           <DrawerItem
@@ -133,7 +143,7 @@ const Drawer: React.FC<DrawerProps> = ({
             locked={false}
             onPress={() => {
               onSelectLexical("(adj.)");
-              scrollToTop();
+              //scrollToTop();
             }}
           />
           <View style={{ paddingVertical: 24 }}></View>
@@ -146,7 +156,7 @@ const Drawer: React.FC<DrawerProps> = ({
             locked={false}
             onPress={() => {
               onSelectTopic("emotion");
-              scrollToTop();
+              //scrollToTop();
             }}
           />
           <DrawerItem
@@ -155,7 +165,7 @@ const Drawer: React.FC<DrawerProps> = ({
             locked={false}
             onPress={() => {
               onSelectTopic("food");
-              scrollToTop();
+              //scrollToTop();
             }}
           />
           <DrawerItem primaryText="I" secondaryText="diom" />
