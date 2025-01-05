@@ -11,9 +11,7 @@ import {
 } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Theme from "../util/theme";
-import FireSvg from "../util/fire-icon";
-import MenuSvg from "../util/menu-icon";
-import SpeakerSvg from "../util/speaker-icon";
+import * as Icons from "../util/import-icons";
 import * as Speech from "expo-speech";
 import Drawer from "../components/Drawer";
 const vocabularyData = require("../assets/vocabulary.json"); // Import JSON data
@@ -58,14 +56,14 @@ const WordCard: React.FC<WordCardProps> = ({
         {/* Normal Speed */}
         <TouchableOpacity onPress={textToSpeechNormal}>
           <View style={styles.speakerBtn}>
-            <SpeakerSvg />
+            <Icons.speakerIcon />
             <Text style={styles.speedText}>x1.0</Text>
           </View>
         </TouchableOpacity>
         {/* Slower Speed */}
         <TouchableOpacity onPress={textToSpeechSlow}>
           <View style={styles.speakerBtn}>
-            <SpeakerSvg />
+            <Icons.speakerIcon />
             <Text style={styles.speedText}>x0.5</Text>
           </View>
         </TouchableOpacity>
@@ -198,9 +196,9 @@ export default function App() {
         <StatusBar barStyle="dark-content" hidden={true} />
         <View style={styles.topIcons}>
           <TouchableOpacity onPress={toggleDrawer}>
-            <MenuSvg />
+            <Icons.menuIcon />
           </TouchableOpacity>
-          <FireSvg />
+          <Icons.fireIcon />
         </View>
         <FlatList
           ref={flatListRef}

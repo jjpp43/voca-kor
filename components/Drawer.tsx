@@ -11,7 +11,6 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 import DrawerItem from "./DrawerItem";
-import locksvg from "../util/lock-icon";
 
 type DrawerProps = {
   toggleDrawer: () => void;
