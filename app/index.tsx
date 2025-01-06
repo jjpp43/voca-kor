@@ -8,12 +8,17 @@ import {
   StatusBar,
   SafeAreaView,
   Dimensions,
+  Modal,
 } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Theme from "../util/theme";
-import * as Icons from "../util/import-icons";
+import * as Icons from "../util/export-icons";
 import * as Speech from "expo-speech";
+import SaveBtn from "../components/SaveBtn";
 import Drawer from "../components/Drawer";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import Toast from "react-native-toast-message";
+
 const vocabularyData = require("../assets/vocabulary.json"); // Import JSON data
 
 const { height } = Dimensions.get("window"); // Get the height of the screen
@@ -39,6 +44,10 @@ const WordCard: React.FC<WordCardProps> = ({
   topic,
   toggleLanguage,
 }) => {
+  const [isSaved, setIsSaved] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false); // Track modal visibility
+  const [modalMessage, setModalMessage] = useState(""); // Track the modal message
+
   // Use TTS to speak the word
   const textToSpeechNormal = () => {
     Speech.speak(word, { language: "ko", rate: 1 });
@@ -46,6 +55,28 @@ const WordCard: React.FC<WordCardProps> = ({
   const textToSpeechSlow = () => {
     Speech.speak(word, { language: "ko", rate: 0.1 });
   };
+
+  //
+  const handleToggleSave = () => {
+    if (isSaved) {
+      setModalMessage("Unsaved");
+    } else {
+      setModalMessage("Saved");
+    }
+    setModalVisible(true); // Show the modal
+    setIsSaved(!isSaved);
+  };
+
+  // Automatically hide the modal after 3 seconds
+  useEffect(() => {
+    if (modalVisible) {
+      const timeout = setTimeout(() => {
+        setModalVisible(false); // Hide the modal after 3 seconds
+      }, 1000);
+
+      return () => clearTimeout(timeout); // Cleanup the timeout
+    }
+  }, [modalVisible]);
 
   return (
     <View style={[styles.card, { height }]}>
@@ -112,6 +143,18 @@ const WordCard: React.FC<WordCardProps> = ({
         <Text style={styles.exampleTitle}>{"ex) "}</Text>
         <Text style={styles.example}>{example}</Text>
       </View>
+      <SaveBtn isSaved={isSaved} onToggleSave={handleToggleSave} />
+      {/* Save Modal */}
+      <Modal
+        transparent={true}
+        animationType="fade"
+        visible={modalVisible}
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <View style={styles.modal}>
+          <Text style={styles.modalText}>{isSaved ? "Saved!" : "Unsaved"}</Text>
+        </View>
+      </Modal>
     </View>
   );
 };
@@ -181,6 +224,7 @@ export default function App() {
 
   return (
     <GestureHandlerRootView style={styles.container}>
+      <Toast />
       {/* <SafeAreaView style={styles.safeAreaContainer}> */}
       {/* Drawer - Start */}
       <Drawer
@@ -200,6 +244,7 @@ export default function App() {
           </TouchableOpacity>
           <Icons.fireIcon />
         </View>
+
         <FlatList
           ref={flatListRef}
           data={filteredData}
@@ -250,7 +295,6 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     fontWeight: "bold",
   },
-
   flatList: {},
   card: {
     flex: 1,
@@ -341,13 +385,26 @@ const styles = StyleSheet.create({
   },
   toggleOptionText: {
     fontSize: 14,
-    color: "#484848",
+    color: Theme.colors.NEUTRAL_300,
   },
   selectedOptionText: {
     color: "#ffffff",
     fontWeight: "bold",
   },
-
+  modal: {
+    position: "absolute",
+    top: 210,
+    width: "100%",
+    left: "50%",
+    height: "auto",
+    transform: [{ translateX: "-50%" }],
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  modalText: {
+    fontSize: 15,
+    fontWeight: 500,
+  },
   //Icons
   topIcons: {
     flexDirection: "row",
@@ -358,7 +415,6 @@ const styles = StyleSheet.create({
     top: 60,
   },
   topic: {},
-
   //FLoating action button
   fab: {
     position: "absolute",
@@ -372,14 +428,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     elevation: 10, // Add shadow for Android
   },
-
   fabText: {
     color: "#fff",
     fontSize: 30,
     fontWeight: "bold",
-  },
-
-  test: {
-    marginTop: 40,
   },
 });

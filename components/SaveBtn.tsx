@@ -1,28 +1,26 @@
-import React from "react";
-import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { TouchableOpacity, StyleSheet } from "react-native";
 import Theme from "../util/theme";
+import SaveIcon from "@/util/save-icon";
+import SavedIcon from "@/util/saved-icon";
 
 type SaveBtnProps = {
-  id: string;
-  onPress?: () => void;
+  isSaved: boolean;
+  onToggleSave?: () => void;
 };
 
-const SaveBtn: React.FC<SaveBtnProps> = ({ id, onPress }) => {
-  return <TouchableOpacity style={styles.saveBtn}></TouchableOpacity>;
+const SaveBtn: React.FC<SaveBtnProps> = ({ isSaved, onToggleSave }) => {
+  return (
+    <TouchableOpacity onPress={onToggleSave} style={styles.border}>
+      {isSaved ? <SavedIcon /> : <SaveIcon />}
+    </TouchableOpacity>
+  );
 };
 
 const styles = StyleSheet.create({
-  saveBtn: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: Theme.colors.NEUTRAL_300,
-
-    borderRadius: 8,
-    paddingVertical: 6,
-    paddingHorizontal: 14,
-    gap: 4,
-  },
-  saveBtnText: {
-    color: "#fff",
+  border: {
+    marginTop: 40,
   },
 });
+
+export default SaveBtn;

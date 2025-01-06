@@ -1,6 +1,7 @@
 import React from "react";
 import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
 import LockSvg from "../util/lock-icon";
+import Theme from "@/util/theme";
 
 // Props for the ItemList component
 type DrawerItemProps = {
