@@ -18,6 +18,7 @@ type DrawerProps = {
   isOpen: boolean;
   onSelectTopic: (topic: string | null) => void; // Prop for topic selection
   onSelectLexical: (lexical: string | null) => void; // Prop for lexical selection
+  onSelectSaved: () => void;
   scrollToTop: () => void; // Prop for scrolling to top
 };
 
@@ -26,11 +27,13 @@ const Drawer: React.FC<DrawerProps> = ({
   toggleDrawer,
   onSelectTopic,
   onSelectLexical,
+  onSelectSaved,
   scrollToTop,
 }) => {
   const [slideAnim] = useState(new Animated.Value(-250)); // Initial position off-screen (left)
   const [opacityAnim] = useState(new Animated.Value(0)); // Initial opacity (hidden)
 
+  // For drawer apprearance animation
   useEffect(() => {
     if (isOpen) {
       // Animate the drawer to slide in and fade in
@@ -108,18 +111,19 @@ const Drawer: React.FC<DrawerProps> = ({
               //scrollToTop(); // Scroll to top after selection
             }}
           />
+          {/* SAVED */}
           <DrawerItem
             primaryText="S"
             secondaryText="aved"
             locked={false}
             onPress={() => {
-              onSelectTopic(null);
-              onSelectLexical(null);
+              onSelectSaved();
               //scrollToTop(); // Scroll to top after selection
             }}
           />
           <View style={{ paddingVertical: 24 }}></View>
           <Text style={styles.title}>Parts of speech</Text>
+          {/* NOUN */}
           <DrawerItem
             primaryText="N"
             secondaryText="oun"
@@ -129,6 +133,7 @@ const Drawer: React.FC<DrawerProps> = ({
               //scrollToTop();
             }}
           />
+          {/* VERB */}
           <DrawerItem
             primaryText="V"
             secondaryText="erb"
@@ -138,6 +143,7 @@ const Drawer: React.FC<DrawerProps> = ({
               //scrollToTop();
             }}
           />
+          {/* ADJ */}
           <DrawerItem
             primaryText="Adj"
             secondaryText="ective"
@@ -151,6 +157,7 @@ const Drawer: React.FC<DrawerProps> = ({
           <Text style={styles.title}>By topic</Text>
           <DrawerItem primaryText="B" secondaryText="usiness" />
           <DrawerItem primaryText="D" secondaryText="ad jokes" />
+
           <DrawerItem
             primaryText="E"
             secondaryText="motion"

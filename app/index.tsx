@@ -30,22 +30,54 @@ export default function App() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false); // State to track drawer visibility
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null); // Topic filter state
   const [selectedLexical, setSelectedLexical] = useState<string | null>(null); // Lexical filter state
+  const [savedWords, setSavedWords] = useState<string[]>([]); // Saved word filter state
+  const [showSavedOnly, setShowSavedOnly] = useState(false); // Toggle to show only saved words
   const flatListRef = useRef<FlatList<any>>(null); // Create a ref for the FlatList
 
-  // Filter Data by Topic and Lexical
+  // Load saved words from AsyncStorage
+  useEffect(() => {
+    loadSavedWords();
+  }, []);
+
+  const loadSavedWords = async () => {
+    try {
+      const saved = await AsyncStorage.getItem("savedWords");
+      if (saved) {
+        setSavedWords(JSON.parse(saved));
+      }
+    } catch (error) {
+      console.error("Failed to load saved words:", error);
+    }
+  };
+
+  // Add this function to handle updates to saved words
+  const handleSavedWordsUpdate = async (word: string, isSaving: boolean) => {
+    try {
+      const newSavedWords = isSaving
+        ? [...savedWords, word]
+        : savedWords.filter((w) => w !== word);
+      setSavedWords(newSavedWords);
+      await AsyncStorage.setItem("savedWords", JSON.stringify(newSavedWords));
+    } catch (error) {
+      console.error("Error updating saved words:", error);
+    }
+  };
+
+  // Filter Data by Topic and Lexical and Saved
   const filteredData = vocabularyData.filter((item: any) => {
     const matchesTopic = selectedTopic ? item.topic === selectedTopic : true;
     const matchesLexical = selectedLexical
       ? item.lexical === selectedLexical
       : true;
-
-    return matchesTopic && matchesLexical;
+    const matchesSaved = showSavedOnly ? savedWords.includes(item.word) : true;
+    return matchesTopic && matchesLexical && matchesSaved;
   });
 
   // Select lexical and close drawer after selection
   const handleLexicalSelection = (lexical: string | null) => {
     setSelectedTopic(null);
     setSelectedLexical(lexical);
+    setShowSavedOnly(false);
     setIsDrawerOpen(false);
   };
 
@@ -53,6 +85,15 @@ export default function App() {
   const handleTopicSelection = (topic: string | null) => {
     setSelectedLexical(null);
     setSelectedTopic(topic);
+    setShowSavedOnly(false);
+    setIsDrawerOpen(false);
+  };
+
+  // Select only saved words and close drawer after selection
+  const handleSavedSelection = () => {
+    setSelectedTopic(null);
+    setSelectedLexical(null);
+    setShowSavedOnly(true);
     setIsDrawerOpen(false);
   };
 
@@ -72,6 +113,8 @@ export default function App() {
       lexical={item.lexical}
       toggleLanguage={toggleLanguage}
       topic={null}
+      onSavedUpdate={handleSavedWordsUpdate}
+      isSaved={savedWords.includes(item.word)}
     />
   );
 
@@ -98,6 +141,7 @@ export default function App() {
         toggleDrawer={toggleDrawer}
         onSelectTopic={handleTopicSelection}
         onSelectLexical={handleLexicalSelection}
+        onSelectSaved={handleSavedSelection}
         scrollToTop={scrollToTop}
       />
       {/* Drawer - End */}
@@ -145,49 +189,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     marginHorizontal: 24,
   },
-  toggleButton: {
-    position: "absolute",
-    top: 20,
-    right: 20,
-    backgroundColor: "#007aff",
-    borderRadius: 10,
-    zIndex: 1,
-  },
-  toggleText: {
-    color: "#ffffff",
-    fontWeight: "bold",
-  },
   flatList: {},
-
-  //Toggle container
-  toggleContainer: {
-    borderWidth: 1,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    marginVertical: 20,
-    borderColor: "rgba(0, 0, 0, 0.3)",
-    borderRadius: 10,
-    overflow: "hidden",
-  },
-  toggleOption: {
-    flex: 1,
-    height: 40,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "rgba(0,0,0,0.08)",
-  },
-  selectedOption: {
-    backgroundColor: Theme.colors.NEUTRAL_300,
-  },
-  toggleOptionText: {
-    fontSize: 14,
-    color: Theme.colors.NEUTRAL_300,
-  },
-  selectedOptionText: {
-    color: "#ffffff",
-    fontWeight: "bold",
-  },
   modal: {
     position: "absolute",
     top: 180,

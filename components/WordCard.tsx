@@ -23,6 +23,8 @@ type WordCardProps = {
   lexical: string;
   topic: string | null;
   toggleLanguage: (lang: string) => void;
+  onSavedUpdate: (word: string, isSaving: boolean) => void;
+  isSaved: boolean;
 };
 
 const WordCard: React.FC<WordCardProps> = ({
@@ -34,10 +36,16 @@ const WordCard: React.FC<WordCardProps> = ({
   lexical,
   topic,
   toggleLanguage,
+  onSavedUpdate,
+  isSaved: initialIsSaved,
 }) => {
   const [isSaved, setIsSaved] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
+
+  useEffect(() => {
+    setIsSaved(initialIsSaved);
+  }, [initialIsSaved]);
 
   const textToSpeechNormal = () => {
     Speech.speak(word, { language: "ko", rate: 1 });
@@ -61,25 +69,13 @@ const WordCard: React.FC<WordCardProps> = ({
 
   const handleToggleSave = async () => {
     try {
-      const savedWords = await AsyncStorage.getItem("savedWords");
-      const savedList = savedWords ? JSON.parse(savedWords) : [];
-
-      if (isSaved) {
-        const updatedList = savedList.filter(
-          (savedWord: string) => savedWord !== word
-        );
-        await AsyncStorage.setItem("savedWords", JSON.stringify(updatedList));
-        setModalMessage("Unsaved");
-      } else {
-        const updatedList = [...savedList, word];
-        await AsyncStorage.setItem("savedWords", JSON.stringify(updatedList));
-        setModalMessage("Saved");
-      }
-
-      setIsSaved(!isSaved);
+      const newIsSaved = !isSaved;
+      setIsSaved(newIsSaved);
+      onSavedUpdate(word, newIsSaved);
+      setModalMessage(newIsSaved ? "Saved" : "Unsaved");
       setModalVisible(true);
     } catch (error) {
-      console.error("Error saving word: ", error);
+      console.error("Error toggling save status: ", error);
     }
   };
 
