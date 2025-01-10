@@ -7,11 +7,20 @@ import SavedIcon from "@/util/saved-icon";
 type SaveBtnProps = {
   isSaved: boolean;
   onToggleSave?: () => void;
+  displayLog?: () => void;
 };
 
-const SaveBtn: React.FC<SaveBtnProps> = ({ isSaved, onToggleSave }) => {
+const SaveBtn: React.FC<SaveBtnProps> = ({
+  isSaved,
+  onToggleSave,
+  displayLog,
+}) => {
+  const handlePress = () => {
+    if (onToggleSave) onToggleSave();
+    if (displayLog) displayLog();
+  };
   return (
-    <TouchableOpacity onPress={onToggleSave} style={styles.border}>
+    <TouchableOpacity onPress={handlePress} style={styles.border}>
       {isSaved ? <SavedIcon /> : <SaveIcon />}
     </TouchableOpacity>
   );

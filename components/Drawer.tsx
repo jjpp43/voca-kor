@@ -11,6 +11,7 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 import DrawerItem from "./DrawerItem";
+import DrawerItemSaved from "./DrawerItemSaved";
 
 type DrawerProps = {
   toggleDrawer: () => void;
