@@ -56,23 +56,53 @@ const WordCard: React.FC<WordCardProps> = ({
     Speech.speak(word, { language: "ko", rate: 0.1 });
   };
 
-  //
-  const handleToggleSave = () => {
-    if (isSaved) {
-      setModalMessage("Unsaved");
-    } else {
-      setModalMessage("Saved");
+  // Check if the word is saved on component mount
+  useEffect(() => {
+    const checkSavedStatus = async () => {
+      try {
+        const savedWords = await AsyncStorage.getItem("savedWords");
+        const savedList = savedWords ? JSON.parse(savedWords) : [];
+        setIsSaved(savedList.includes(word)); // Check if the word is in the saved list
+      } catch (error) {
+        console.error("Error fetching saved words: ", error);
+      }
+    };
+    checkSavedStatus();
+  }, [word]);
+
+  // Handle Save/Unsave
+  const handleToggleSave = async () => {
+    try {
+      const savedWords = await AsyncStorage.getItem("savedWords");
+      const savedList = savedWords ? JSON.parse(savedWords) : [];
+
+      if (isSaved) {
+        // Remove word from saved list
+        const updatedList = savedList.filter(
+          (savedWord: string) => savedWord !== word
+        );
+        await AsyncStorage.setItem("savedWords", JSON.stringify(updatedList));
+        setModalMessage("Unsaved");
+      } else {
+        // Add word to saved list
+        const updatedList = [...savedList, word];
+        await AsyncStorage.setItem("savedWords", JSON.stringify(updatedList));
+        setModalMessage("Saved");
+      }
+
+      setIsSaved(!isSaved);
+      setModalVisible(true); // Show the modal
+    } catch (error) {
+      console.error("Error saving word: ", error);
     }
-    setModalVisible(true); // Show the modal
-    setIsSaved(!isSaved);
   };
 
-  // Automatically hide the modal after 3 seconds
+  // Automatically hide the modal after 0.5 seconds
   useEffect(() => {
     if (modalVisible) {
       const timeout = setTimeout(() => {
-        setModalVisible(false); // Hide the modal after 3 seconds
-      }, 1000);
+        setModalVisible(false); // Hide the modal after 0.5 seconds
+      }, 500);
 
       return () => clearTimeout(timeout); // Cleanup the timeout
     }
@@ -173,6 +203,7 @@ export default function App() {
     const matchesLexical = selectedLexical
       ? item.lexical === selectedLexical
       : true;
+
     return matchesTopic && matchesLexical;
   });
 
@@ -393,7 +424,7 @@ const styles = StyleSheet.create({
   },
   modal: {
     position: "absolute",
-    top: 210,
+    top: 180,
     width: "100%",
     left: "50%",
     height: "auto",
@@ -402,7 +433,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   modalText: {
-    fontSize: 15,
+    fontSize: 18,
     fontWeight: 500,
   },
   //Icons
