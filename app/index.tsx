@@ -118,6 +118,18 @@ export default function App() {
     />
   );
 
+  // Render if there's no content to display
+  const renderEmptyState = () => {
+    if (showSavedOnly && savedWords.length === 0) {
+      return (
+        <View style={styles.emptyContainer}>
+          <Text style={styles.emptyText}>Discover & Save{"\n"}new words!</Text>
+        </View>
+      );
+    }
+    return null;
+  };
+
   // Scroll back to the top of the list
   const scrollToTop = () => {
     if (flatListRef.current) {
@@ -155,18 +167,22 @@ export default function App() {
           <Icons.fireIcon />
         </View>
 
-        <FlatList
-          ref={flatListRef}
-          data={filteredData}
-          renderItem={renderItem}
-          keyExtractor={(item, index) => index.toString()}
-          pagingEnabled
-          showsVerticalScrollIndicator={false}
-          snapToAlignment="start"
-          snapToInterval={height}
-          decelerationRate="fast"
-          style={styles.flatList}
-        />
+        {filteredData.length > 0 ? (
+          <FlatList
+            ref={flatListRef}
+            data={filteredData}
+            renderItem={renderItem}
+            keyExtractor={(item, index) => index.toString()}
+            pagingEnabled
+            showsVerticalScrollIndicator={false}
+            snapToAlignment="start"
+            snapToInterval={height}
+            decelerationRate="fast"
+            style={styles.flatList}
+          />
+        ) : (
+          renderEmptyState()
+        )}
 
         {/* Floating Action Button */}
         <TouchableOpacity
@@ -204,6 +220,18 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 500,
   },
+  //For empty content
+  emptyContainer: {
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  emptyText: {
+    fontSize: 20,
+    color: Theme.colors.TEXT_DARK,
+    textAlign: "center",
+  },
+
   //Icons
   topIcons: {
     flexDirection: "row",
